@@ -44,4 +44,8 @@ function findEntriesThatSumTo2020(inputArray) {
   }
 }
 
-findEntriesThatSumTo2020(testInput);
+function sumTwoNumbers(arrayOfTwo) {
+  return arrayOfTwo[0]*arrayOfTwo[1];
+}
+
+sumTwoNumbers(findEntriesThatSumTo2020(testInput));
