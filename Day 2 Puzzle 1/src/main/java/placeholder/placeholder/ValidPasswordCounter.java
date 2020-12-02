@@ -11,6 +11,7 @@ public class ValidPasswordCounter {
         for (int i = 0; i < inputArray.size(); i+=3) {
             // inputArray[i] is the range
             String range = inputArray.get(i);
+            // TODO: Fix this!! Not all numbers are one digit.
             char minimumAsChar = range.charAt(0);
             int minimum = Character.getNumericValue(minimumAsChar);
             char maximumAsChar = range.charAt(2);
