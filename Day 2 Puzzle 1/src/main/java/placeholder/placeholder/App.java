@@ -12,5 +12,6 @@ public class App
         System.out.println( "Hello World!" );
         ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
         validPasswordCounter.countValidPasswords();
+        // returns 2 for testInput and 326 for input
     }
 }
