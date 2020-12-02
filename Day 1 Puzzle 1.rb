@@ -1,11 +1,10 @@
-var testInput = [1721,
+testInput = [1721,
   979,
   366,
   299,
   675,
-  1456];
-
-var input = [1078,
+  1456]
+input = [1078,
   1109,
   1702,
   1293,
@@ -82,7 +81,7 @@ var input = [1078,
   1742,
   1941,
   1395,
-  1525,,
+  1525,
   1165,
   715,
   1829,
@@ -204,4 +203,36 @@ var input = [1078,
   1057,
   1650,
   1171,
-  1593];
+  1593]
+
+def findEntriesThatSumTo2020(inputArray)
+  resultArray = [0, 0]
+  i = 0
+  while i < inputArray.length()
+      j = 0
+      while j < inputArray.length()
+        number1 = inputArray[i]
+        number2 = inputArray[j]
+        if number1 + number2 == 2020
+          resultArray[0] = number1
+          resultArray[1] = number2
+        end
+        j += 1
+      end
+    i += 1
+  end
+  print resultArray
+  # result for testInput: [299, 1721]
+  # result for input: [1528, 492]
+  return resultArray
+end
+
+def sumResults(twoNumbers)
+  print twoNumbers[0]*twoNumbers[1]
+  # result for testInput: 514579
+  # result for testInput: 751776
+  return twoNumbers[0]*twoNumbers[1]
+end
+
+sumResults(findEntriesThatSumTo2020(testInput))
+sumResults(findEntriesThatSumTo2020(input))
