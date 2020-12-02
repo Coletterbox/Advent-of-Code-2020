@@ -7,13 +7,14 @@ import java.util.Scanner;
 
 public class InputParser {
 
-    public static void makeInputIntoArray() throws FileNotFoundException {
+    public static ArrayList makeInputIntoArray() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("src/resources/input"));
         ArrayList<String> inputArray = new ArrayList<String>();
         while (scanner.hasNext()) {
             inputArray.add(scanner.next());
         }
-        System.out.println(inputArray);
         scanner.close();
+        System.out.println(inputArray);
+        return inputArray;
     }
 }

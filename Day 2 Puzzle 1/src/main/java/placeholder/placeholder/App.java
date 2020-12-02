@@ -12,5 +12,7 @@ public class App
         System.out.println( "Hello World!" );
         InputParser inputParser = new InputParser();
         inputParser.makeInputIntoArray();
+        ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
+        validPasswordCounter.countValidPasswords();
     }
 }
