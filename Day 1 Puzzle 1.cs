@@ -6,7 +6,10 @@ namespace Day1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // okay, what are the C# naming conventions (specifically re: Pascal or camel case) again...?
+            int[] input = { 1721, 979, 366, 299, 675, 1456 };
+
+            MultiplyNumbers(ChooseNumbers(input));
         }
 
         public static int[] ChooseNumbers(int[] InputArray)
@@ -28,7 +31,15 @@ namespace Day1
                 }
             }
 
+            Console.WriteLine(ResultArray[0]);
+            Console.WriteLine(ResultArray[1]);
             return ResultArray;
+        }
+
+        public static int MultiplyNumbers(int[] ChosenNumbers)
+        {
+            Console.WriteLine(ChosenNumbers[0] * ChosenNumbers[1]);
+            return ChosenNumbers[0] * ChosenNumbers[1];
         }
     }
 }
