@@ -1,13 +1,12 @@
 package placeholder.placeholder;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import java.io.FileNotFoundException;
+
+public class App
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) throws FileNotFoundException {
+        ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
+        validPasswordCounter.countValidPasswords();
+        // returns 2 for testInput and 622 for input
     }
 }
