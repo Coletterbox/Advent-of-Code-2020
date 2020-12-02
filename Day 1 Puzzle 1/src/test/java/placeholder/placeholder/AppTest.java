@@ -1,5 +1,6 @@
 package placeholder.placeholder;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -18,5 +19,12 @@ public class AppTest {
         NumberChooser numberChooser = new NumberChooser();
         int[] resultArray = numberChooser.chooseNumbers(testInput);
         assertTrue(resultArray[0] + resultArray[1] == 2020);
+    }
+
+    @Test
+    public void checkProductOfNumbers() {
+        NumberChooser numberChooser = new NumberChooser();
+        int[] resultArray = numberChooser.chooseNumbers(testInput);
+        assertEquals(514579, NumberMultiplier.multiplyNumbers(resultArray));
     }
 }
