@@ -12,10 +12,17 @@ public class ValidPasswordCounter {
             // inputArray[i] is the range
             String range = inputArray.get(i);
             // TODO: Fix this!! Not all numbers are one digit.
-            char minimumAsChar = range.charAt(0);
-            int minimum = Character.getNumericValue(minimumAsChar);
-            char maximumAsChar = range.charAt(2);
-            int maximum = Character.getNumericValue(maximumAsChar);
+//            char minimumAsChar = range.charAt(0);
+//            int minimum = Character.getNumericValue(minimumAsChar);
+//            char maximumAsChar = range.charAt(2);
+//            int maximum = Character.getNumericValue(maximumAsChar);
+
+            String[] rangeArray = range.split("-");
+            String minimumAsString = rangeArray[0];
+            String maximumAsString = rangeArray[1];
+            int minimum = Integer.parseInt(minimumAsString);
+            int maximum = Integer.parseInt(maximumAsString);
+
             // first character of inputArray[i+1] is the letter
             char letter = inputArray.get(i + 1).charAt(0);
             // inputArray[i+2] is the password
