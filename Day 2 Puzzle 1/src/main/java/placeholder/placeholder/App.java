@@ -10,8 +10,6 @@ public class App
 {
     public static void main( String[] args ) throws FileNotFoundException {
         System.out.println( "Hello World!" );
-        InputParser inputParser = new InputParser();
-        inputParser.makeInputIntoArray();
         ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
         validPasswordCounter.countValidPasswords();
     }

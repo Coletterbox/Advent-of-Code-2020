@@ -28,7 +28,7 @@ public class ValidPasswordCounter {
                 validPasswordCount++;
             }
         }
-        System.out.println(validPasswordCount);
+        System.out.println("Number of valid passwords: " + validPasswordCount);
         return validPasswordCount;
     }
 }
