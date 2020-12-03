@@ -4,9 +4,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class ValidPasswordCounter {
-    public static int countValidPasswords() throws FileNotFoundException {
+    public static int countValidPasswords(String pathname) throws FileNotFoundException {
         InputParser inputParser = new InputParser();
-        ArrayList<String> inputArray = inputParser.makeInputIntoArray();
+        ArrayList<String> inputArray = inputParser.makeInputIntoArray(pathname);
         int validPasswordCount = 0;
         for (int i = 0; i < inputArray.size(); i+=3) {
             // inputArray[i] is the range

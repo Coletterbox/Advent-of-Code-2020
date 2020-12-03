@@ -12,7 +12,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue() throws FileNotFoundException {
         ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
-        validPasswordCounter.countValidPasswords();
-        assertEquals(622, validPasswordCounter.countValidPasswords());
+        assertEquals(622, validPasswordCounter.countValidPasswords("src/resources/input"));
     }
 }
