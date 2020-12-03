@@ -17,10 +17,11 @@ public class TreeCounter {
         // i.e. if you hit the end of a string, you appear at the beginning of the string
 
         // starting co-ordinate is 0,0; this is top left
-        for (int startX = 0; startX < inputAsArray.size(); startX++) {
-            for (int startY = 0; startY < inputAsArray.get(0).length(); startY++) {
+        for (int startY = 0; startY < inputAsArray.size(); startY++) {
+//            for (int startX = 0; startX < inputAsArray.get(0).length(); startX++) {
+//
+//            }
 
-            }
         }
 
         return treeCount;
