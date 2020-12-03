@@ -19,9 +19,6 @@ public class TreeCounter {
         // starting co-ordinate is 0,0; this is top left
         int startX = 0;
         for (int startY = 0; startY < inputAsArray.size(); startY+=y) {
-//            for (int startX = 0; startX < inputAsArray.get(0).length(); startX+=x) {
-//
-//            }
             // count trees
             String currentRow = inputAsArray.get(startY);
             char currentPosition = currentRow.charAt(startX);
