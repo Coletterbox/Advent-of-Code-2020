@@ -30,7 +30,7 @@ public class TreeCounter {
             }
             startX+=x;
             int width = inputAsArray.get(0).length();
-            if (startX > width) {
+            if (startX >= width) {
                 startX-=width;
             }
         }
