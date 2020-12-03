@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class TreeCounter {
     public int CountTrees(String filepath, int x, int y) throws IOException {
+        // x or y must be 1 otherwise it doesn't really make sense; I should get the code to handle this
+
         // for this task, x will be 3 and y will be 1
         int treeCount = 0;
 
@@ -17,7 +19,7 @@ public class TreeCounter {
         // starting co-ordinate is 0,0; this is top left
         for (int startX = 0; startX < inputAsArray.size(); startX++) {
             for (int startY = 0; startY < inputAsArray.get(0).length(); startY++) {
-                
+
             }
         }
 
