@@ -29,4 +29,10 @@ public class AppTest
         ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
         assertEquals(2, validPasswordCounter.countValidPasswords("src/resources/testInput"));
     }
+
+    @Test
+    public void testUsingTestInput2() throws FileNotFoundException {
+        ValidPasswordCounter validPasswordCounter = new ValidPasswordCounter();
+        assertEquals(6, validPasswordCounter.countValidPasswords("src/resources/testInput2"));
+    }
 }
