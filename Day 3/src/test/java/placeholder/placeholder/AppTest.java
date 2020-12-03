@@ -115,4 +115,11 @@ public class AppTest {
         int treeCount = treeCounter.CountTrees("src/resources/input",1, 2);
         assertEquals(41, treeCount);
     }
+
+//    @Test
+//    @DisplayName("Test for correct sum.")
+//    public void checkSum() throws IOException {
+//        long answer = App.main().total;
+//        assertTrue(3521829480 == answer);
+//    }
 }
