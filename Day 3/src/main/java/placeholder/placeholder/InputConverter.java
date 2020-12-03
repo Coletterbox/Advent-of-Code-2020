@@ -13,8 +13,8 @@ public class InputConverter {
         String line = reader.readLine();
         while (line != null) {
             System.out.println(line);
-            line = reader.readLine();
             inputAsArray.add(line);
+            line = reader.readLine();
         }
         reader.close();
         return inputAsArray;

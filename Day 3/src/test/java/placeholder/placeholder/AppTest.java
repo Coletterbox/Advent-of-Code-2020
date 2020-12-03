@@ -18,4 +18,16 @@ public class AppTest {
         InputConverter inputConverter = new InputConverter();
         inputConverter.convertInputToArray("src/resources/input");
     }
+
+//    @Test
+//    public void checkArray() throws IOException {
+//        TreeCounter treeCounter = new TreeCounter();
+//        treeCounter.CountTrees("src/resources/testInput",3, 1);
+//    }
+
+    @Test
+    public void checkTreeCounter0() throws IOException {
+        TreeCounter treeCounter = new TreeCounter();
+        treeCounter.CountTrees("src/resources/testInput",3, 1);
+    }
 }
