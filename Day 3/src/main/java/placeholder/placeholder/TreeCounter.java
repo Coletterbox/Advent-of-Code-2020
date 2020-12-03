@@ -14,6 +14,13 @@ public class TreeCounter {
         // travel until bottom of the map; map tiles horizontally
         // i.e. if you hit the end of a string, you appear at the beginning of the string
 
+        // starting co-ordinate is 0,0; this is top left
+        for (int startX = 0; startX < inputAsArray.size(); startX++) {
+            for (int startY = 0; startY < inputAsArray.get(0).length(); startY++) {
+                
+            }
+        }
+
         return treeCount;
     }
 }
