@@ -25,4 +25,12 @@ public class AppTest {
         int treeCount = treeCounter.CountTrees("src/resources/input",3, 1);
         assertEquals(156, treeCount);
     }
+
+    @Test
+    @DisplayName("Test for other values of x and y.")
+    public void checkTreeCounter1() throws IOException {
+        TreeCounter treeCounter = new TreeCounter();
+        int treeCount = treeCounter.CountTrees("src/resources/testInput",1, 8);
+        assertEquals(0, treeCount);
+    }
 }
