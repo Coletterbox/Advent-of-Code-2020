@@ -24,9 +24,33 @@ public class InputConverter {
 
     ArrayList<String> splitBetweenPassports(ArrayList<String> inputAsArrayList) {
         ArrayList<String> passportArrayList = new ArrayList<String>();
-        for (String line : inputAsArrayList) {
-            
+        int passportArrayListIndex = 0;
+        for (int i = 0; i < inputAsArrayList.size(); i++) {
+            if (i == 0) {
+                passportArrayList.add(inputAsArrayList.get(i));
+            } else {
+                if (inputAsArrayList.get(i).length() > 0 && inputAsArrayList.get(i-1).length() > 0) {
+//                    passportArrayList.get(passportArrayListIndex) = passportArrayList.get(passportArrayListIndex) + " " + inputAsArrayList.get(i);
+                    passportArrayList.add("");
+                    passportArrayList.set(passportArrayListIndex, passportArrayList.get(passportArrayListIndex) + " " + inputAsArrayList.get(i));
+                } else if (inputAsArrayList.get(i).length() > 0 && inputAsArrayList.get(i-1).length() == 0) {
+                    passportArrayListIndex++;
+                    passportArrayList.add("");
+                    passportArrayList.set(passportArrayListIndex, inputAsArrayList.get(i));
+                } else if (inputAsArrayList.get(i).length() == 0) {
+                    passportArrayListIndex++;
+                } else {
+                    System.out.println("lmao you fucked up");
+                }
+            }
+
+//            if (inputAsArrayList.get(i).length() > 0) {
+//                passportArrayList.add(inputAsArrayList.get(i));
+//            }
+
+
         }
+//        String inputAsOneString = inputAsArrayList.
 
         return passportArrayList;
     }
