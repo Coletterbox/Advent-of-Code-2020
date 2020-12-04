@@ -45,4 +45,14 @@ public class AppTest {
         int validPassportCount = passportChecker.countValidPassports(passportArrayList);
         assertEquals(2, validPassportCount);
     }
+
+    @Test
+    public void checkValidPassportCounter2() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/input");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countValidPassports(passportArrayList);
+        assertEquals(202, validPassportCount);
+    }
 }
