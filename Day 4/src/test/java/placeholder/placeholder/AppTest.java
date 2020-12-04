@@ -1,5 +1,6 @@
 package placeholder.placeholder;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -33,5 +34,15 @@ public class AppTest {
         ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/exampleInput");
         System.out.println("Split between passports:");
         System.out.println(inputConverter.splitBetweenPassports(inputAsArrayList));
+    }
+
+    @Test
+    public void checkValidPassportCounter() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/exampleInput");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countValidPassports(passportArrayList);
+        assertEquals(2, validPassportCount);
     }
 }

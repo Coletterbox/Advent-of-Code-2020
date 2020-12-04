@@ -51,7 +51,8 @@ public class InputConverter {
 
         }
 //        String inputAsOneString = inputAsArrayList.
-
+        System.out.println("passportArrayList:");
+        System.out.println(passportArrayList);
         return passportArrayList;
     }
 }
