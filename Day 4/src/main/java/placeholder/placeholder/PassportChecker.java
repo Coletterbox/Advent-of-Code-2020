@@ -37,15 +37,21 @@ public class PassportChecker {
 //                            }
 //                        }
                         if (fieldArray[0] == "byr") {
-                            checkBirthYear(fieldArray);
-                        }
-                        if (fieldArray[0] == "iyr") {
-                            if (Integer.parseInt(fieldArray[1]) < 2010 || Integer.parseInt(fieldArray[1]) > 2020) {
+                            boolean maybeFalse = checkBirthYear(fieldArray);
+                            // only sounds redundant
+                            if (maybeFalse == false) {
                                 isValid = false;
                             }
                         }
                         if (fieldArray[0] == "iyr") {
-                            if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
+                            boolean maybeFalse = checkIssueYear(fieldArray);
+                            if (maybeFalse == false) {
+                                isValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "eyr") {
+                            boolean maybeFalse = checkExpirationYear(fieldArray);
+                            if (maybeFalse == false) {
                                 isValid = false;
                             }
                         }
@@ -81,6 +87,45 @@ public class PassportChecker {
         if (Integer.parseInt(fieldArray[1]) < 2010 || Integer.parseInt(fieldArray[1]) > 2020) {
             return false;
         }
+        return true;
+    }
+
+    public boolean checkExpirationYear(String[] fieldArray) {
+        if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkHeight(String[] fieldArray) {
+        int indexOfLastCharacter = fieldArray[1].length()-1;
+        int indexOfSecondLastCharacter = fieldArray[1].length()-2;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(fieldArray[1].charAt(indexOfSecondLastCharacter));
+        stringBuilder.append(fieldArray[1].charAt(indexOfLastCharacter));
+        String units = stringBuilder.toString();
+        System.out.println("fieldArray[1]:");
+        System.out.println(fieldArray[1]);
+        System.out.println("units:");
+        System.out.println(units);
+        String numberAsString = fieldArray[1].substring(0, fieldArray[1].length()-2);
+        System.out.println("numberAsString:");
+        System.out.println(numberAsString);
+        int numberAsInt = Integer.parseInt(numberAsString);
+        // un-nest these
+        if (units == "cm") {
+            if (numberAsInt < 150 || numberAsInt > 193) {
+                return false;
+            }
+        }
+        if (units == "in") {
+            if (numberAsInt < 59 || numberAsInt > 76) {
+                return false;
+            }
+        }
+//        if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
+//            return false;
+//        }
         return true;
     }
 }
