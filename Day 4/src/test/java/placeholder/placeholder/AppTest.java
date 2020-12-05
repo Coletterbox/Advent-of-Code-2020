@@ -1,12 +1,11 @@
 package placeholder.placeholder;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 public class AppTest {
     @Test
@@ -54,5 +53,55 @@ public class AppTest {
         PassportChecker passportChecker = new PassportChecker();
         int validPassportCount = passportChecker.countValidPassports(passportArrayList);
         assertEquals(202, validPassportCount);
+    }
+
+    @Test
+    public void testCredentialChecker() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/input");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countValidPassports(passportArrayList);
+        passportChecker.countPassportsWithValidData(passportArrayList);
+    }
+
+    @Test
+    public void testHighInvalidBirthYear() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] birthYear = {"byr", "2007"};
+        boolean isValid = passportChecker.checkBirthYear(birthYear);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void testValidBirthYear() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] birthYear = {"byr", "2000"};
+        boolean isValid = passportChecker.checkBirthYear(birthYear);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void testLowInvalidBirthYear() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] birthYear = {"byr", "1900"};
+        boolean isValid = passportChecker.checkBirthYear(birthYear);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void testMinimumBirthYear() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] birthYear = {"byr", "1920"};
+        boolean isValid = passportChecker.checkBirthYear(birthYear);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void testMaximumBirthYear() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] birthYear = {"byr", "2002"};
+        boolean isValid = passportChecker.checkBirthYear(birthYear);
+        assertTrue(isValid);
     }
 }
