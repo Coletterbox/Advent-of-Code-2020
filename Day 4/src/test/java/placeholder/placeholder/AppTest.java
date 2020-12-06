@@ -472,5 +472,24 @@ public class AppTest {
         assertEquals(0, validPassportCount);
     }
 
-    // please stop forgetting to change the function when you're testing a new one
+    @Test
+    public void checkPassportsWithValidData4() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/exampleInput");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(2, validPassportCount);
+    }
+
+    @Test
+    // this is for the puzzle answer
+    public void checkPassportsWithValidData5() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/input");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(2, validPassportCount);
+    }
 }

@@ -101,6 +101,9 @@ public class PassportChecker {
     }
 
     public boolean checkHeight(String[] fieldArray) {
+        if (fieldArray[1].length() < 3) {
+            return false;
+        }
         int indexOfLastCharacter = fieldArray[1].length()-1;
         int indexOfSecondLastCharacter = fieldArray[1].length()-2;
         StringBuilder stringBuilder = new StringBuilder();
