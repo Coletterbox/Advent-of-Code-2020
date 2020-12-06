@@ -27,24 +27,51 @@ public class PassportChecker {
                 if (currentPassport.contains("byr") && currentPassport.contains("iyr") && currentPassport.contains("eyr") && currentPassport.contains("hgt") && currentPassport.contains("hcl") && currentPassport.contains("ecl") && currentPassport.contains("pid")) {
                     // check credentials
                     String[] currentPassportCredentials = currentPassport.split(" ");
+                    boolean passportIsValid = true;
                     for (String field : currentPassportCredentials) {
                         String[] fieldArray = field.split(":");
                         System.out.println("fieldArray:");
                         System.out.println(Arrays.toString(fieldArray));
-                        // this line leads to java.lang.NumberFormatException even though calling the same functions elsewhere does not
-//                        if (checkBirthYear(fieldArray) && checkIssueYear(fieldArray) && checkExpirationYear(fieldArray) && checkHeight(fieldArray) && checkHairColour(fieldArray) && checkEyeColour(fieldArray) && checkPassportID(fieldArray)) {
-//                            validPassportCount++;
-//                        }
                         // omfg, I was calling all these functions on all the fields... that was the purpose of the if statements I deleted
-                        boolean hairColourValid = checkHairColour(fieldArray);
-                        boolean heightValid = checkHeight(fieldArray);
-//                        boolean hairColourValid = checkHairColour(fieldArray);
-//                        boolean hairColourValid = checkHairColour(fieldArray);
-//                        boolean hairColourValid = checkHairColour(fieldArray);
-//                        boolean hairColourValid = checkHairColour(fieldArray);
-                        if (hairColourValid && heightValid) {
-                            validPassportCount++;
+                        // check each field, change passportIsValid to false if anything is invalid
+                        if (fieldArray[0] == "byr") {
+                            if (!checkBirthYear(fieldArray)) {
+                                passportIsValid = false;
+                            }
                         }
+                        if (fieldArray[0] == "iyr") {
+                            if (!checkIssueYear(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "eyr") {
+                            if (!checkExpirationYear(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "hgt") {
+                            if (!checkHeight(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "hcl") {
+                            if (!checkHairColour(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "ecl") {
+                            if (!checkEyeColour(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "pid") {
+                            if (!checkPassportID(fieldArray)) {
+                                passportIsValid = false;
+                            }
+                        }
+                    }
+                    if (passportIsValid) {
+                        validPassportCount++;
                     }
                     System.out.println("currentPassportCredentials: " + Arrays.toString(currentPassportCredentials));
                 }
