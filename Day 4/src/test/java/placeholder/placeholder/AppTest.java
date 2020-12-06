@@ -1,6 +1,7 @@
 package placeholder.placeholder;
 
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -258,6 +259,14 @@ public class AppTest {
     }
 
     @Test
+    public void checkHeightWithTrailingCharacter() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "60inc"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
     public void checkHeightWithNoUnits() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] height = {"hgt", "60"};
@@ -410,9 +419,33 @@ public class AppTest {
     }
 
     @Test
+    public void checkTooLongPassportID2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "1655664611"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkTooLongPassportID3() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "0655664611"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
     public void checkTooShortPassportID() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] passportID = {"pid", "0000011"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkTooShortPassportID2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "33333333"};
         boolean isValid = passportChecker.checkPassportID(passportID);
         assertFalse(isValid);
     }
@@ -445,6 +478,24 @@ public class AppTest {
     public void checkInvalidPassportID4() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] passportID = {"pid", "12356789a"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    // checking adjacent char codes
+    public void checkInvalidPassportID5() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "1235678/9"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    // checking adjacent charcodes
+    public void checkInvalidPassportID6() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "1235678:9"};
         boolean isValid = passportChecker.checkPassportID(passportID);
         assertFalse(isValid);
     }

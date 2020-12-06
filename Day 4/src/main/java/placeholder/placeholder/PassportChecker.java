@@ -121,17 +121,21 @@ public class PassportChecker {
         String numberAsString = fieldArray[1].substring(0, fieldArray[1].length()-2);
         System.out.println("numberAsString:");
         System.out.println(numberAsString);
-        int numberAsInt = Integer.parseInt(numberAsString);
-        // un-nest these
-        if (units == "cm") {
-            if (numberAsInt < 150 || numberAsInt > 193) {
-                return false;
+        try {
+            int numberAsInt = Integer.parseInt(numberAsString);
+            // un-nest these
+            if (units == "cm") {
+                if (numberAsInt < 150 || numberAsInt > 193) {
+                    return false;
+                }
             }
-        }
-        if (units == "in") {
-            if (numberAsInt < 59 || numberAsInt > 76) {
-                return false;
+            if (units == "in") {
+                if (numberAsInt < 59 || numberAsInt > 76) {
+                    return false;
+                }
             }
+        } catch(Exception e) {
+            return false;
         }
 //        if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
 //            return false;
@@ -157,6 +161,10 @@ public class PassportChecker {
 //            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^A-Fa-f0-9]")) {
                 return false;
             }
+
+//            if (!String.valueOf(fieldArray[1].charAt(i)).matches("[^a-f0-9]")) {
+//                return false;
+//            }
         }
         return true;
     }
@@ -174,16 +182,25 @@ public class PassportChecker {
             return false;
         }
         for (int i = 0; i < passportID.length(); i++) {
-//            char currentChar = fieldArray[1].charAt(i);
-////            String currentCharAsString = String.valueOf(currentChar);
-//            int currentCharCode = (int) currentChar;
-//            if (currentCharCode < 48 || currentCharCode > 57) {
-//                return false;
-//            }
-            // other TODO:
-            if (!String.valueOf(passportID.charAt(i)).matches("[^0-9]")) {
+            char currentChar = fieldArray[1].charAt(i);
+
+//            String currentCharAsString = String.valueOf(currentChar);
+
+            int currentCharCode = (int) currentChar;
+            // TODO: double-check?
+            if (currentCharCode < 48 || currentCharCode > 57) {
                 return false;
             }
+
+            // other TODO:
+//            if (!String.valueOf(passportID.charAt(i)).matches("[^0-9]")) {
+//                return false;
+//            }
+
+//            // yeah, I know
+//            if (!(currentChar == 0 || currentChar == 1 || currentChar == 2 || currentChar == 3 || currentChar == 4 || currentChar == 5 || currentChar == 6 || currentChar == 7 || currentChar == 8 || currentChar == 9)) {
+//                return false;
+//            }
         }
         return true;
     }
