@@ -127,15 +127,15 @@ public class PassportChecker {
             int numberAsInt = Integer.parseInt(numberAsString);
             // un-nest these
             // TODO: check that height without units is covered
-//            if (units != "cm" && units != "in") {
-//                return false;
-//            }
-            if (units == "cm") {
+            if (!units.matches("cm") && !units.matches("in")) {
+                return false;
+            }
+            if (units.matches("cm")) {
                 if (numberAsInt < 150 || numberAsInt > 193) {
                     return false;
                 }
             }
-            if (units == "in") {
+            if (units.matches("in")) {
                 if (numberAsInt < 59 || numberAsInt > 76) {
                     return false;
                 }

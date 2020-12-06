@@ -211,6 +211,14 @@ public class AppTest {
     }
 
     @Test
+    public void checkHeightFieldTooShort() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
     public void checkMinHeightInIn() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] height = {"hgt", "59in"};
@@ -583,7 +591,7 @@ public class AppTest {
         ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
         PassportChecker passportChecker = new PassportChecker();
         int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
-        assertEquals(140, validPassportCount);
+        assertEquals(137, validPassportCount);
     }
 
     @Test
@@ -594,6 +602,6 @@ public class AppTest {
         ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
         PassportChecker passportChecker = new PassportChecker();
         int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
-        assertEquals(140, validPassportCount);
+        assertEquals(137, validPassportCount);
     }
 }
