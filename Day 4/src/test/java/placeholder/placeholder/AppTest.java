@@ -385,5 +385,45 @@ public class AppTest {
         assertFalse(isValid);
     }
 
+    @Test
+    public void checkValidPassportID() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "000000001"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidPassportID2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "556412378"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkTooLongPassportID() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "0000000011"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkTooShortPassportID() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "0000011"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkInvalidPassportID() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "aaaaaaaaa"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
     // please stop forgetting to change the function when you're testing a new one
 }

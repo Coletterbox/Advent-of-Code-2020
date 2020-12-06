@@ -67,6 +67,18 @@ public class PassportChecker {
                                 isValid = false;
                             }
                         }
+                        if (fieldArray[0] == "ecl") {
+                            boolean maybeFalse = checkEyeColour(fieldArray);
+                            if (maybeFalse == false) {
+                                isValid = false;
+                            }
+                        }
+                        if (fieldArray[0] == "pid") {
+                            boolean maybeFalse = checkPassportID(fieldArray);
+                            if (maybeFalse == false) {
+                                isValid = false;
+                            }
+                        }
                         if (isValid == true) {
                             validPassportCount++;
                         }
@@ -152,5 +164,21 @@ public class PassportChecker {
         System.out.println("eye colour:");
         System.out.println(fieldArray[1]);
         return (colour.equals("amb") || colour.equals("blu") || colour.equals("brn") || colour.equals("gry") || colour.equals("grn") || colour.equals("hzl") || colour.equals("oth"));
+    }
+
+    public boolean checkPassportID(String[] fieldArray) {
+        String passportID = fieldArray[1];
+        if (passportID.length() != 9) {
+            return false;
+        }
+        for (int i = 0; i < passportID.length(); i++) {
+            char currentChar = fieldArray[1].charAt(i);
+//            String currentCharAsString = String.valueOf(currentChar);
+            int currentCharCode = (int) currentChar;
+            if (currentCharCode < 48 || currentCharCode > 57) {
+                return false;
+            }
+        }
+        return true;
     }
 }
