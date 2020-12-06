@@ -128,4 +128,20 @@ public class PassportChecker {
 //        }
         return true;
     }
+
+    public boolean checkHairColour(String[] fieldArray) {
+        if (fieldArray[1].length() != 7) {
+            return false;
+        }
+        char firstCharacter = fieldArray[1].charAt(0);
+        if (firstCharacter != '#') {
+            return false;
+        }
+        for (int i = 1; i < fieldArray[1].length(); i++) {
+            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^A-Fa-f0-9]")) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

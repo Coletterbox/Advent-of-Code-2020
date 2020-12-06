@@ -264,4 +264,12 @@ public class AppTest {
         boolean isValid = passportChecker.checkHeight(height);
         assertFalse(isValid);
     }
+
+    @Test
+    public void checkValidHairColour() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "#123abc"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertTrue(isValid);
+    }
 }
