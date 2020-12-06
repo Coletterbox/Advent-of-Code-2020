@@ -35,6 +35,16 @@ public class PassportChecker {
 //                        if (checkBirthYear(fieldArray) && checkIssueYear(fieldArray) && checkExpirationYear(fieldArray) && checkHeight(fieldArray) && checkHairColour(fieldArray) && checkEyeColour(fieldArray) && checkPassportID(fieldArray)) {
 //                            validPassportCount++;
 //                        }
+                        // omfg, I was calling all these functions on all the fields... that was the purpose of the if statements I deleted
+                        boolean hairColourValid = checkHairColour(fieldArray);
+                        boolean heightValid = checkHeight(fieldArray);
+//                        boolean hairColourValid = checkHairColour(fieldArray);
+//                        boolean hairColourValid = checkHairColour(fieldArray);
+//                        boolean hairColourValid = checkHairColour(fieldArray);
+//                        boolean hairColourValid = checkHairColour(fieldArray);
+                        if (hairColourValid && heightValid) {
+                            validPassportCount++;
+                        }
                     }
                     System.out.println("currentPassportCredentials: " + Arrays.toString(currentPassportCredentials));
                 }
