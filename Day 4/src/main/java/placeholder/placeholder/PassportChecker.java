@@ -31,11 +31,6 @@ public class PassportChecker {
                         String[] fieldArray = field.split(":");
                         boolean isValid = true;
                         // FIX: these don't need to be nested
-//                        if (fieldArray[0] == "byr") {
-//                            if (Integer.parseInt(fieldArray[1]) < 1920 || Integer.parseInt(fieldArray[1]) > 2002) {
-//                                isValid = false;
-//                            }
-//                        }
                         if (fieldArray[0] == "byr") {
                             boolean maybeFalse = checkBirthYear(fieldArray);
                             // only sounds redundant

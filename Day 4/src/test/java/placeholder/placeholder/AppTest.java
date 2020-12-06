@@ -425,5 +425,17 @@ public class AppTest {
         assertFalse(isValid);
     }
 
+    // tests for main function involved in puzzle 2
+    @Test
+    public void checkPassportsWithValidData() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/testInput");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(4, validPassportCount);
+        // should be 4; gives 60 - which is also the number of all the fields
+    }
+
     // please stop forgetting to change the function when you're testing a new one
 }
