@@ -304,4 +304,86 @@ public class AppTest {
         boolean isValid = passportChecker.checkHairColour(hairColour);
         assertFalse(isValid);
     }
+
+    @Test
+    public void checkValidEyeColour() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "amb"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "blu"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour3() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "brn"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour4() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "gry"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour5() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "grn"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour6() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "hzl"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkValidEyeColour7() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "oth"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkInvalidEyeColour() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "mmb"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkInvalidEyeColour2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", ""};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkInvalidEyeColour3() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] eyeColour = {"ecl", "mdjshjkfdjkfd"};
+        boolean isValid = passportChecker.checkEyeColour(eyeColour);
+        assertFalse(isValid);
+    }
+
+    // please stop forgetting to change the function when you're testing a new one
 }

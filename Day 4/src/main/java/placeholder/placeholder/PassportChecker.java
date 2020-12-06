@@ -56,15 +56,17 @@ public class PassportChecker {
                             }
                         }
                         if (fieldArray[0] == "hgt") {
-//                            String units = fieldArray[1].charAt(fieldArray[1].length()-1) + fieldArray[1].charAt(fieldArray[1].length()-2);
-                            int indexOfLastCharacter = fieldArray[1].length()-1;
-                            int indexOfSecondLastCharacter = fieldArray[1].length()-2;
-                            StringBuilder stringBuilder = new StringBuilder();
-                            stringBuilder.append(fieldArray[1].charAt(indexOfSecondLastCharacter));
-                            stringBuilder.append(fieldArray[1].charAt(indexOfLastCharacter));
-                            String units = stringBuilder.toString();
+                            boolean maybeFalse = checkHeight(fieldArray);
+                            if (maybeFalse == false) {
+                                isValid = false;
+                            }
                         }
-
+                        if (fieldArray[0] == "hcl") {
+                            boolean maybeFalse = checkHairColour(fieldArray);
+                            if (maybeFalse == false) {
+                                isValid = false;
+                            }
+                        }
                         if (isValid == true) {
                             validPassportCount++;
                         }
@@ -143,5 +145,12 @@ public class PassportChecker {
             }
         }
         return true;
+    }
+
+    public boolean checkEyeColour(String[] fieldArray) {
+        String colour = fieldArray[1];
+        System.out.println("eye colour:");
+        System.out.println(fieldArray[1]);
+        return (colour.equals("amb") || colour.equals("blu") || colour.equals("brn") || colour.equals("gry") || colour.equals("grn") || colour.equals("hzl") || colour.equals("oth"));
     }
 }
