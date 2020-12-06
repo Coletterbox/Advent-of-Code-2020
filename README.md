@@ -10,6 +10,8 @@
 **Day 2, Puzzle 2:** [Java](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%202%20Puzzle%202), [Python](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%202%20Puzzle%202.ipynb)\
 **Day 3, Puzzle 1:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%203/src), [Python](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%203%20Puzzle%201.ipynb)\
 **Day 3, Puzzle 2:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%203/src), [Python](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%203%20Puzzle%202.ipynb)\
+**Day 4, Puzzle 1:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%204/src)\
+**Day 4, Puzzle 2:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%204/src)\
 \* = includes tests
 
 ## To Do:
