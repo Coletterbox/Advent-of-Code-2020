@@ -32,8 +32,7 @@ public class PassportChecker {
                         String[] fieldArray = field.split(":");
                         System.out.println("fieldArray:");
                         System.out.println(Arrays.toString(fieldArray));
-                        // omfg, I was calling all these functions on all the fields... that was the purpose of the if statements I deleted
-                        // check each field, change passportIsValid to false if anything is invalid
+                        // check each field; change passportIsValid to false if anything is invalid
                         if (fieldArray[0] == "byr") {
                             if (!checkBirthYear(fieldArray)) {
                                 passportIsValid = false;
