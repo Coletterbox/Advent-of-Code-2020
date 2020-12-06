@@ -31,8 +31,8 @@ public class PassportChecker {
                     boolean passportIsValid = true;
                     for (String field : currentPassportCredentials) {
                         String[] fieldArray = field.split(":");
-                        System.out.println("fieldArray:");
-                        System.out.println(Arrays.toString(fieldArray));
+//                        System.out.println("fieldArray:");
+//                        System.out.println(Arrays.toString(fieldArray));
                         // check each field; change passportIsValid to false if anything is invalid
                         if (fieldArray[0].equals("byr")) {
                             if (!checkBirthYear(fieldArray)) {
@@ -74,12 +74,12 @@ public class PassportChecker {
                         validPassports.add(currentPassport);
                         validPassportCount++;
                     }
-                    System.out.println("currentPassportCredentials: " + Arrays.toString(currentPassportCredentials));
+//                    System.out.println("currentPassportCredentials: " + Arrays.toString(currentPassportCredentials));
                 }
             }
         }
-        System.out.println("Valid passports:");
-        System.out.println(validPassports);
+//        System.out.println("Valid passports:");
+//        System.out.println(validPassports);
         return validPassportCount;
     }
 
@@ -114,13 +114,13 @@ public class PassportChecker {
         stringBuilder.append(fieldArray[1].charAt(indexOfSecondLastCharacter));
         stringBuilder.append(fieldArray[1].charAt(indexOfLastCharacter));
         String units = stringBuilder.toString();
-        System.out.println("fieldArray[1]:");
-        System.out.println(fieldArray[1]);
-        System.out.println("units:");
-        System.out.println(units);
+//        System.out.println("fieldArray[1]:");
+//        System.out.println(fieldArray[1]);
+//        System.out.println("units:");
+//        System.out.println(units);
         String numberAsString = fieldArray[1].substring(0, fieldArray[1].length()-2);
-        System.out.println("numberAsString:");
-        System.out.println(numberAsString);
+//        System.out.println("numberAsString:");
+//        System.out.println(numberAsString);
 
 //        try {
 
@@ -152,10 +152,10 @@ public class PassportChecker {
     }
 
     public boolean checkHairColour(String[] fieldArray) {
-        System.out.println("Hair colour debugging:");
-        System.out.println("fieldArray: " + fieldArray);
-        System.out.println("fieldArray[0]: " + fieldArray[0]);
-        System.out.println("fieldArray[1]: " + fieldArray[1]);
+//        System.out.println("Hair colour debugging:");
+//        System.out.println("fieldArray: " + fieldArray);
+//        System.out.println("fieldArray[0]: " + fieldArray[0]);
+//        System.out.println("fieldArray[1]: " + fieldArray[1]);
         if (fieldArray[1].length() != 7) {
             return false;
         }
@@ -179,8 +179,8 @@ public class PassportChecker {
 
     public boolean checkEyeColour(String[] fieldArray) {
         String colour = fieldArray[1];
-        System.out.println("eye colour:");
-        System.out.println(fieldArray[1]);
+//        System.out.println("eye colour:");
+//        System.out.println(fieldArray[1]);
         return (colour.equals("amb") || colour.equals("blu") || colour.equals("brn") || colour.equals("gry") || colour.equals("grn") || colour.equals("hzl") || colour.equals("oth"));
     }
 

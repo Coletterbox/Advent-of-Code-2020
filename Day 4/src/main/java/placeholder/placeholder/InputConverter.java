@@ -13,12 +13,12 @@ public class InputConverter {
         reader = new BufferedReader(new FileReader(filename));
         String line = reader.readLine();
         while (line != null) {
-            System.out.println(line);
+//            System.out.println(line);
             inputAsArrayList.add(line);
             line = reader.readLine();
         }
         reader.close();
-        System.out.println(inputAsArrayList);
+//        System.out.println(inputAsArrayList);
         return inputAsArrayList;
     }
 
@@ -39,8 +39,6 @@ public class InputConverter {
                     passportArrayList.set(passportArrayListIndex, inputAsArrayList.get(i));
                 } else if (inputAsArrayList.get(i).length() == 0) {
                     passportArrayListIndex++;
-                } else {
-                    System.out.println("lmao you fucked up");
                 }
             }
 
@@ -51,8 +49,8 @@ public class InputConverter {
 
         }
 //        String inputAsOneString = inputAsArrayList.
-        System.out.println("passportArrayList:");
-        System.out.println(passportArrayList);
+//        System.out.println("passportArrayList:");
+//        System.out.println(passportArrayList);
         return passportArrayList;
     }
 }
