@@ -20,6 +20,7 @@ public class PassportChecker {
 
     public int countPassportsWithValidData(ArrayList<String> passportArrayList) {
         int validPassportCount = 0;
+        ArrayList <String> validPassports = new ArrayList<String>();
         for (int i = 0; i < passportArrayList.size(); i++) {
             // this if statement is from not stripping out blank entries
             if (passportArrayList.get(i).length() > 0) {
@@ -70,31 +71,34 @@ public class PassportChecker {
                         }
                     }
                     if (passportIsValid) {
+                        validPassports.add(currentPassport);
                         validPassportCount++;
                     }
                     System.out.println("currentPassportCredentials: " + Arrays.toString(currentPassportCredentials));
                 }
             }
         }
+        System.out.println("Valid passports:");
+        System.out.println(validPassports);
         return validPassportCount;
     }
 
     public boolean checkBirthYear(String[] fieldArray) {
-        if (Integer.parseInt(fieldArray[1]) < 1920 || Integer.parseInt(fieldArray[1]) > 2002) {
+        if (fieldArray[1].length() != 4 || Integer.parseInt(fieldArray[1]) < 1920 || Integer.parseInt(fieldArray[1]) > 2002) {
             return false;
         }
         return true;
     }
 
     public boolean checkIssueYear(String[] fieldArray) {
-        if (Integer.parseInt(fieldArray[1]) < 2010 || Integer.parseInt(fieldArray[1]) > 2020) {
+        if (fieldArray[1].length() != 4 || Integer.parseInt(fieldArray[1]) < 2010 || Integer.parseInt(fieldArray[1]) > 2020) {
             return false;
         }
         return true;
     }
 
     public boolean checkExpirationYear(String[] fieldArray) {
-        if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
+        if (fieldArray[1].length() != 4 || Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
             return false;
         }
         return true;

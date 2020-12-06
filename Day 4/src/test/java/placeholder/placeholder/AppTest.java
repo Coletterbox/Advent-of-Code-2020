@@ -483,6 +483,16 @@ public class AppTest {
     }
 
     @Test
+    public void checkPassportsWithValidData7() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/testInput4");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(1, validPassportCount);
+    }
+
+    @Test
     // this is for the puzzle answer
     public void checkPassportsWithValidData5() throws IOException {
         InputConverter inputConverter = new InputConverter();
@@ -490,6 +500,17 @@ public class AppTest {
         ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
         PassportChecker passportChecker = new PassportChecker();
         int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
-        assertEquals(2, validPassportCount);
+        assertEquals(140, validPassportCount);
+    }
+
+    @Test
+    // this is for the puzzle answer
+    public void checkPassportsWithValidData6() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/input2");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(140, validPassportCount);
     }
 }
