@@ -33,37 +33,37 @@ public class PassportChecker {
                         System.out.println("fieldArray:");
                         System.out.println(Arrays.toString(fieldArray));
                         // check each field; change passportIsValid to false if anything is invalid
-                        if (fieldArray[0] == "byr") {
+                        if (fieldArray[0].equals("byr")) {
                             if (!checkBirthYear(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "iyr") {
+                        if (fieldArray[0].equals("iyr")) {
                             if (!checkIssueYear(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "eyr") {
+                        if (fieldArray[0].equals("eyr")) {
                             if (!checkExpirationYear(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "hgt") {
+                        if (fieldArray[0].equals("hgt")) {
                             if (!checkHeight(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "hcl") {
+                        if (fieldArray[0].equals("hcl")) {
                             if (!checkHairColour(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "ecl") {
+                        if (fieldArray[0].equals("ecl")) {
                             if (!checkEyeColour(fieldArray)) {
                                 passportIsValid = false;
                             }
                         }
-                        if (fieldArray[0] == "pid") {
+                        if (fieldArray[0].equals("pid")) {
                             if (!checkPassportID(fieldArray)) {
                                 passportIsValid = false;
                             }
