@@ -275,6 +275,14 @@ public class AppTest {
     }
 
     @Test
+    public void checkHeightWithNoUnits2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "155"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
     public void checkValidHairColour() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] hairColour = {"hcl", "#123abc"};

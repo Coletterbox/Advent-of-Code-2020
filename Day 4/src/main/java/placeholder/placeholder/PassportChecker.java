@@ -121,9 +121,15 @@ public class PassportChecker {
         String numberAsString = fieldArray[1].substring(0, fieldArray[1].length()-2);
         System.out.println("numberAsString:");
         System.out.println(numberAsString);
-        try {
+
+//        try {
+
             int numberAsInt = Integer.parseInt(numberAsString);
             // un-nest these
+            // TODO: check that height without units is covered
+//            if (units != "cm" && units != "in") {
+//                return false;
+//            }
             if (units == "cm") {
                 if (numberAsInt < 150 || numberAsInt > 193) {
                     return false;
@@ -134,9 +140,11 @@ public class PassportChecker {
                     return false;
                 }
             }
-        } catch(Exception e) {
-            return false;
-        }
+
+//        } catch(Exception e) {
+//            return false;
+//        }
+
 //        if (Integer.parseInt(fieldArray[1]) < 2020 || Integer.parseInt(fieldArray[1]) > 2030) {
 //            return false;
 //        }
