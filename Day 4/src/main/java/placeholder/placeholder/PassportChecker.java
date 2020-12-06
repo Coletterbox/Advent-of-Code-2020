@@ -152,7 +152,8 @@ public class PassportChecker {
             return false;
         }
         for (int i = 1; i < fieldArray[1].length(); i++) {
-            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^A-Fa-f0-9]")) {
+            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^a-f0-9]")) {
+//            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^A-Fa-f0-9]")) {
                 return false;
             }
         }

@@ -425,6 +425,30 @@ public class AppTest {
         assertFalse(isValid);
     }
 
+    @Test
+    public void checkInvalidPassportID2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "fjdshjkdshjfdshjfd"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkInvalidPassportID3() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "1234567891"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkInvalidPassportID4() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] passportID = {"pid", "12356789a"};
+        boolean isValid = passportChecker.checkPassportID(passportID);
+        assertFalse(isValid);
+    }
+
     // tests for main function involved in puzzle 2
     @Test
     public void checkPassportsWithValidData() throws IOException {
