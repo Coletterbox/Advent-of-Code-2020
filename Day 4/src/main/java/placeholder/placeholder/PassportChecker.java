@@ -152,6 +152,7 @@ public class PassportChecker {
             return false;
         }
         for (int i = 1; i < fieldArray[1].length(); i++) {
+            // TODO: if it IS a-f or 0-9? am I just tired or is that wrong?
             if (String.valueOf(fieldArray[1].charAt(i)).matches("[^a-f0-9]")) {
 //            if (String.valueOf(fieldArray[1].charAt(i)).matches("[^A-Fa-f0-9]")) {
                 return false;
@@ -173,10 +174,14 @@ public class PassportChecker {
             return false;
         }
         for (int i = 0; i < passportID.length(); i++) {
-            char currentChar = fieldArray[1].charAt(i);
-//            String currentCharAsString = String.valueOf(currentChar);
-            int currentCharCode = (int) currentChar;
-            if (currentCharCode < 48 || currentCharCode > 57) {
+//            char currentChar = fieldArray[1].charAt(i);
+////            String currentCharAsString = String.valueOf(currentChar);
+//            int currentCharCode = (int) currentChar;
+//            if (currentCharCode < 48 || currentCharCode > 57) {
+//                return false;
+//            }
+            // other TODO:
+            if (!String.valueOf(passportID.charAt(i)).matches("[^0-9]")) {
                 return false;
             }
         }
