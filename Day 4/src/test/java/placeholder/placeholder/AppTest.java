@@ -162,10 +162,106 @@ public class AppTest {
     }
 
     @Test
-    public void checkHeightThing() throws IOException {
+    public void checkValidHeightInCm() throws IOException {
         PassportChecker passportChecker = new PassportChecker();
         String[] height = {"hgt", "155cm"};
         boolean isValid = passportChecker.checkHeight(height);
         assertTrue(isValid);
+    }
+
+    @Test
+    public void checkMinHeightInCm() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "150cm"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkMaxHeightInCm() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "193cm"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkLowInvalidHeightInCm() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "140cm"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHighInvalidHeightInCm() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "200cm"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkValidHeightInIn() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "61in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkMinHeightInIn() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "59in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkMaxHeightInIn() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "76in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void checkLowInvalidHeightInIn() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "50in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHighInvalidHeightInIn() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "99in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHeightWithWrongUnits() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "155in"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHeightWithWrongUnits2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "60cm"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHeightWithNoUnits() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] height = {"hgt", "60"};
+        boolean isValid = passportChecker.checkHeight(height);
+        assertFalse(isValid);
     }
 }
