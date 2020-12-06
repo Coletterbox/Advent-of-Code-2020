@@ -437,5 +437,51 @@ public class AppTest {
         // should be 4; gives 60 - which is also the number of all the fields
     }
 
+    @Test
+    // from testing whole thing:
+    // java.lang.NumberFormatException: For input string: "#18171d"
+    // from just running this:
+    // Hair colour debugging:
+    // fieldArray: [Ljava.lang.String;@3dfc5fb8
+    // fieldArray[0]: hcl
+    // fieldArray[1]: #18171d
+    public void checkValidHairColourFromFailedAttempt() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "#18171d"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    // #18171d removed
+    // java.lang.NumberFormatException: For input string: "#602927"
+    public void checkPassportsWithValidData2() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/testInput2");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(4, validPassportCount);
+    }
+
+    @Test
+    public void checkValidHairColourFromFailedAttempt2() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "#602927"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertTrue(isValid);
+    }
+
+    @Test
+    // throws java.lang.NumberFormatException errors because of hgt:158cm and the hash in hcl:#b6652a
+    public void checkPassportsWithValidData3() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/testInput3");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+        assertEquals(0, validPassportCount);
+    }
+
     // please stop forgetting to change the function when you're testing a new one
 }

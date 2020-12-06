@@ -29,52 +29,62 @@ public class PassportChecker {
                     String[] currentPassportCredentials = currentPassport.split(" ");
                     for (String field : currentPassportCredentials) {
                         String[] fieldArray = field.split(":");
+                        System.out.println("fieldArray:");
+                        System.out.println(Arrays.toString(fieldArray));
                         boolean isValid = true;
                         // FIX: these don't need to be nested
-                        if (fieldArray[0] == "byr") {
-                            boolean maybeFalse = checkBirthYear(fieldArray);
-                            // only sounds redundant
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "iyr") {
-                            boolean maybeFalse = checkIssueYear(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "eyr") {
-                            boolean maybeFalse = checkExpirationYear(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "hgt") {
-                            boolean maybeFalse = checkHeight(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "hcl") {
-                            boolean maybeFalse = checkHairColour(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "ecl") {
-                            boolean maybeFalse = checkEyeColour(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (fieldArray[0] == "pid") {
-                            boolean maybeFalse = checkPassportID(fieldArray);
-                            if (maybeFalse == false) {
-                                isValid = false;
-                            }
-                        }
-                        if (isValid == true) {
+                        // TODO: remove unnecessary booleans and if statements
+//                        if (fieldArray[0] == "byr") {
+//                            boolean maybeFalse = checkBirthYear(fieldArray);
+//                            // only sounds redundant
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "iyr") {
+//                            boolean maybeFalse = checkIssueYear(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "eyr") {
+//                            boolean maybeFalse = checkExpirationYear(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "hgt") {
+//                            boolean maybeFalse = checkHeight(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "hcl") {
+////                            System.out.println("Hair colour debugging:");
+////                            System.out.println("fieldArray: " + fieldArray);
+////                            System.out.println("fieldArray[0]: " + fieldArray[0]);
+////                            System.out.println("fieldArray[1]: " + fieldArray[1]);
+//                            boolean maybeFalse = checkHairColour(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "ecl") {
+//                            boolean maybeFalse = checkEyeColour(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (fieldArray[0] == "pid") {
+//                            boolean maybeFalse = checkPassportID(fieldArray);
+//                            if (maybeFalse == false) {
+//                                isValid = false;
+//                            }
+//                        }
+//                        if (isValid == true) {
+//                            validPassportCount++;
+//                        }
+                        if (checkBirthYear(fieldArray) && checkIssueYear(fieldArray) && checkExpirationYear(fieldArray) && checkHeight(fieldArray) && checkHairColour(fieldArray) && checkEyeColour(fieldArray) && checkPassportID(fieldArray)) {
                             validPassportCount++;
                         }
                     }
@@ -139,6 +149,10 @@ public class PassportChecker {
     }
 
     public boolean checkHairColour(String[] fieldArray) {
+        System.out.println("Hair colour debugging:");
+        System.out.println("fieldArray: " + fieldArray);
+        System.out.println("fieldArray[0]: " + fieldArray[0]);
+        System.out.println("fieldArray[1]: " + fieldArray[1]);
         if (fieldArray[1].length() != 7) {
             return false;
         }
