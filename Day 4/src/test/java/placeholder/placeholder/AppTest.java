@@ -272,4 +272,36 @@ public class AppTest {
         boolean isValid = passportChecker.checkHairColour(hairColour);
         assertTrue(isValid);
     }
+
+    @Test
+    public void checkInvalidHairColour() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "#123abz"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkTooShortHairColour() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "#123"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHairColourNoHash() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "145623"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertFalse(isValid);
+    }
+
+    @Test
+    public void checkHairColourNoHashRightLength() throws IOException {
+        PassportChecker passportChecker = new PassportChecker();
+        String[] hairColour = {"hcl", "1456233"};
+        boolean isValid = passportChecker.checkHairColour(hairColour);
+        assertFalse(isValid);
+    }
 }
