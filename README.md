@@ -2,6 +2,8 @@
 
 ## https://adventofcode.com
 
+<img src="https://media.giphy.com/media/F6OGeOgxHzgZO31NnM/giphy.gif" width="150">
+
 ## Contents:
 
 **Day 1, Puzzle 1:** [JavaScript](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%201%20Puzzle%201.js), [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%201%20Puzzle%201), [Ruby](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%201%20Puzzle%201.rb), [C#](https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/Day%201%20Puzzle%201.cs)\
@@ -18,4 +20,4 @@
 - [ ] Clean up massive Jupyter Notebook files.
 - [ ] Follow proper testing protocol more often.
 
-![](https://media.giphy.com/media/F6OGeOgxHzgZO31NnM/giphy.gif)
+<img src="https://github.com/Coletterbox/Advent-of-Code-2020/blob/main/2020-12-08%20at%2001.55.51.png" alt="This made me really happy." width="500">
