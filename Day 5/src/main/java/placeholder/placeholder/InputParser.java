@@ -52,8 +52,21 @@ public class InputParser {
     }
 
     public int findColumnNumber(String boardingPassSequence) {
-
-        return 0;
+        String columnIdentifier = boardingPassSequence.substring(7, 10);
+        int numberOfColumns = 8;
+        int[] rangeOfColumns = {0, numberOfColumns};
+        for (int i = 0; i < columnIdentifier.length(); i++) {
+            if (columnIdentifier.charAt(i) == 'L') {
+                rangeOfColumns[1] = rangeOfColumns[0] + (rangeOfColumns[1] - rangeOfColumns[0] - 1)/2;
+                System.out.println(Arrays.toString(rangeOfColumns));
+            }
+            if (columnIdentifier.charAt(i) == 'R') {
+                rangeOfColumns[0] = rangeOfColumns[0] + (rangeOfColumns[1] - rangeOfColumns[0] - 1)/2 + 1;
+                System.out.println(Arrays.toString(rangeOfColumns));
+            }
+        }
+        //both items should be the same
+        return rangeOfColumns[0];
     }
 
     public int findSeatID(int rowNumber, int columnNumber) {

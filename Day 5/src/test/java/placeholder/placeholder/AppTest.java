@@ -42,4 +42,32 @@ public class AppTest
         int rowNumber = inputParser.findRowNumber("BBFFBBFRLL");
         assertEquals(102, rowNumber);
     }
+
+    @Test
+    public void checkFindColumnNumber() throws IOException {
+        InputParser inputParser = new InputParser();
+        int columnNumber = inputParser.findColumnNumber("FBFBBFFRLR");
+        assertEquals(5, columnNumber);
+    }
+
+    @Test
+    public void checkFindColumnNumber2() throws IOException {
+        InputParser inputParser = new InputParser();
+        int columnNumber = inputParser.findColumnNumber("BFFFBBFRRR");
+        assertEquals(7, columnNumber);
+    }
+
+    @Test
+    public void checkFindColumnNumber3() throws IOException {
+        InputParser inputParser = new InputParser();
+        int columnNumber = inputParser.findColumnNumber("FFFBBBFRRR");
+        assertEquals(7, columnNumber);
+    }
+
+    @Test
+    public void checkFindColumnNumber4() throws IOException {
+        InputParser inputParser = new InputParser();
+        int columnNumber = inputParser.findColumnNumber("BBFFBBFRLL");
+        assertEquals(4, columnNumber);
+    }
 }
