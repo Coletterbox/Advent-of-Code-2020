@@ -98,4 +98,11 @@ public class AppTest
         int seatID = inputParser.findSeatID(102, 4);
         assertEquals(820, seatID);
     }
+
+    @Test
+    public void checkFindHighestSeatID() throws IOException {
+        InputParser inputParser = new InputParser();
+        int highestSeatID = inputParser.findHighestSeatID("src/resources/testInput");
+        assertEquals(820, highestSeatID);
+    }
 }

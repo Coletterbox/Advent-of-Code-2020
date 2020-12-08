@@ -72,4 +72,19 @@ public class InputParser {
     public int findSeatID(int rowNumber, int columnNumber) {
         return rowNumber*8 + columnNumber;
     }
+
+    public int findHighestSeatID(String filepath) throws IOException {
+        ArrayList<String> inputAsArray = convertInputToArray(filepath);
+        int[] seatIDArray = new int[inputAsArray.size()];
+        int i = 0;
+        for (String boardingPassSequence : inputAsArray) {
+            int rowNumber = findRowNumber(boardingPassSequence);
+            int columnNumber = findColumnNumber(boardingPassSequence);
+            int seatID = findSeatID(rowNumber, columnNumber);
+            seatIDArray[i] = seatID;
+            ++i;
+        }
+        Arrays.sort(seatIDArray);
+        return seatIDArray[seatIDArray.length-1];
+    }
 }
