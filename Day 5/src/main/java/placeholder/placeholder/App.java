@@ -12,6 +12,6 @@ public class App {
 
         int seatNumber = inputParser.findGap("src/resources/input");
         System.out.println(seatNumber);
-        // 633 is the gap; currently returns 634
+        // returns 633 :)
     }
 }

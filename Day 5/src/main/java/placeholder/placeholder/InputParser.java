@@ -106,8 +106,8 @@ public class InputParser {
         int[] sortedSeatArray = returnSortedSeatIDArray(filepath);
         System.out.println("sortedSeatArray: " + Arrays.toString(sortedSeatArray));
         for (int i = 1; i < sortedSeatArray.length-1; i++) {
-            if (sortedSeatArray[i] != (sortedSeatArray[i-1]+1) && i != (sortedSeatArray[i+1]-1)) {
-                return sortedSeatArray[i];
+            if (sortedSeatArray[i] != (sortedSeatArray[i-1]+1)) {
+                return sortedSeatArray[i]-1;
             }
         }
         return 0;
