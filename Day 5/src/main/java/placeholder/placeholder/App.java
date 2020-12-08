@@ -1,10 +1,12 @@
 package placeholder.placeholder;
 
 
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+import java.io.IOException;
+
+public class App {
+    public static void main( String[] args ) throws IOException {
+        InputParser inputParser = new InputParser();
+        int highestSeatID = inputParser.findHighestSeatID("src/resources/input");
+        // returns 861 :)
     }
 }
