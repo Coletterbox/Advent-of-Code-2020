@@ -70,4 +70,32 @@ public class AppTest
         int columnNumber = inputParser.findColumnNumber("BBFFBBFRLL");
         assertEquals(4, columnNumber);
     }
+
+    @Test
+    public void checkFindSeatID() throws IOException {
+        InputParser inputParser = new InputParser();
+        int seatID = inputParser.findSeatID(44, 5);
+        assertEquals(357, seatID);
+    }
+
+    @Test
+    public void checkFindSeatID2() throws IOException {
+        InputParser inputParser = new InputParser();
+        int seatID = inputParser.findSeatID(70, 7);
+        assertEquals(567, seatID);
+    }
+
+    @Test
+    public void checkFindSeatID3() throws IOException {
+        InputParser inputParser = new InputParser();
+        int seatID = inputParser.findSeatID(14, 7);
+        assertEquals(119, seatID);
+    }
+
+    @Test
+    public void checkFindSeatID4() throws IOException {
+        InputParser inputParser = new InputParser();
+        int seatID = inputParser.findSeatID(102, 4);
+        assertEquals(820, seatID);
+    }
 }

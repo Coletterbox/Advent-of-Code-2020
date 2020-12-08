@@ -70,7 +70,6 @@ public class InputParser {
     }
 
     public int findSeatID(int rowNumber, int columnNumber) {
-
-        return 0;
+        return rowNumber*8 + columnNumber;
     }
 }
