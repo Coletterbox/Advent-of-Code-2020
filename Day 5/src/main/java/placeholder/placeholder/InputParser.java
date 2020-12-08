@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InputParser {
+
     public ArrayList<String> convertInputToArray(String filepath) throws IOException {
         ArrayList<String> inputAsArray = new ArrayList<String>();
         BufferedReader reader;
@@ -21,6 +22,7 @@ public class InputParser {
         reader.close();
         return inputAsArray;
     }
+
     // remember that convertInputToArray will return a string array, but the next functions deal with the individual strings
     public int findRowNumber(String boardingPassSequence) {
         String rowIdentifier = boardingPassSequence.substring(0, 7);
@@ -44,17 +46,16 @@ public class InputParser {
                 rangeOfRows[0] = rangeOfRows[0] + (rangeOfRows[1] - rangeOfRows[0] - 1)/2 + 1;
                 System.out.println(Arrays.toString(rangeOfRows));
             }
-            // I don't know why it reaches this
-//            else {
-//                return -1;
-//            }
         }
-        return 0;
+        //both items should be the same
+        return rangeOfRows[0];
     }
+
     public int findColumnNumber(String boardingPassSequence) {
 
         return 0;
     }
+
     public int findSeatID(int rowNumber, int columnNumber) {
 
         return 0;
