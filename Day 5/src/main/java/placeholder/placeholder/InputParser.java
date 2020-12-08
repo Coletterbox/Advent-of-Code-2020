@@ -1,7 +1,6 @@
 package placeholder.placeholder;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -86,5 +85,31 @@ public class InputParser {
         }
         Arrays.sort(seatIDArray);
         return seatIDArray[seatIDArray.length-1];
+    }
+
+    public int[] returnSortedSeatIDArray(String filepath) throws IOException {
+        ArrayList<String> inputAsArray = convertInputToArray(filepath);
+        int[] seatIDArray = new int[inputAsArray.size()];
+        int i = 0;
+        for (String boardingPassSequence : inputAsArray) {
+            int rowNumber = findRowNumber(boardingPassSequence);
+            int columnNumber = findColumnNumber(boardingPassSequence);
+            int seatID = findSeatID(rowNumber, columnNumber);
+            seatIDArray[i] = seatID;
+            ++i;
+        }
+        Arrays.sort(seatIDArray);
+        return seatIDArray;
+    }
+
+    public int findGap(String filepath) throws IOException {
+        int[] sortedSeatArray = returnSortedSeatIDArray(filepath);
+        System.out.println("sortedSeatArray: " + Arrays.toString(sortedSeatArray));
+        for (int i = 1; i < sortedSeatArray.length-1; i++) {
+            if (sortedSeatArray[i] != (sortedSeatArray[i-1]+1) && i != (sortedSeatArray[i+1]-1)) {
+                return sortedSeatArray[i];
+            }
+        }
+        return 0;
     }
 }
