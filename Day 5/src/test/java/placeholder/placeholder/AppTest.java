@@ -13,4 +13,10 @@ public class AppTest
         InputParser inputParser = new InputParser();
         inputParser.convertInputToArray("src/resources/testInput");
     }
+
+    @Test
+    public void checkFindRowNumber() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.findRowNumber("FBFBBFFRLR");
+    }
 }

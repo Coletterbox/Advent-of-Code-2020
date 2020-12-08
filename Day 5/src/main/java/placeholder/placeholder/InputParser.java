@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class InputParser {
     public ArrayList<String> convertInputToArray(String filepath) throws IOException {
@@ -22,7 +23,32 @@ public class InputParser {
     }
     // remember that convertInputToArray will return a string array, but the next functions deal with the individual strings
     public int findRowNumber(String boardingPassSequence) {
-
+        String rowIdentifier = boardingPassSequence.substring(0, 7);
+        int numberOfRows = 127;
+        int[] rangeOfRows = {0, numberOfRows};
+        for (int i = 0; i < rowIdentifier.length(); i++) {
+            if (rowIdentifier.charAt(i) == 'F') {
+                //difference minus one
+                //half
+                //add to first number
+                //(is second number)
+                rangeOfRows[1] = rangeOfRows[0] + (rangeOfRows[1] - rangeOfRows[0] - 1)/2;
+                System.out.println(Arrays.toString(rangeOfRows));
+            }
+            if (rowIdentifier.charAt(i) == 'B') {
+                //difference minus one
+                //half
+                //add to first number
+                //add one
+                //(is first number)
+                rangeOfRows[0] = rangeOfRows[0] + (rangeOfRows[1] - rangeOfRows[0] - 1)/2 + 1;
+                System.out.println(Arrays.toString(rangeOfRows));
+            }
+            // I don't know why it reaches this
+//            else {
+//                return -1;
+//            }
+        }
         return 0;
     }
     public int findColumnNumber(String boardingPassSequence) {
