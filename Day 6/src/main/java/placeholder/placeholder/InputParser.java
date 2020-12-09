@@ -101,4 +101,13 @@ public class InputParser {
         System.out.println("groups without doubles: " + sortedGroupsWithoutDoubles);
         return sortedGroupsWithoutDoubles;
     }
+
+    int sumCounts(String filename) throws IOException {
+        ArrayList<String> sortedGroupsWithoutDoubles = removeDoubles(filename);
+        int sumOfCounts = 0;
+        for (String group : sortedGroupsWithoutDoubles) {
+            sumOfCounts = sumOfCounts += group.length();
+        }
+        return sumOfCounts;
+    }
 }
