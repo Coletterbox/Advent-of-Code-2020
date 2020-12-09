@@ -79,7 +79,7 @@ public class InputParser {
                     groups.add("");
                     groups.set(groupsIndex, groups.get(groupsIndex) + " " + inputAsArrayList.get(i));
                 } else if (inputAsArrayList.get(i).length() > 0 && inputAsArrayList.get(i-1).length() == 0) {
-                    groupsIndex++;
+//                    groupsIndex++;
                     groups.add("");
                     groups.set(groupsIndex, inputAsArrayList.get(i));
                 } else if (inputAsArrayList.get(i).length() == 0) {
@@ -87,6 +87,7 @@ public class InputParser {
                 }
             }
         }
+        System.out.println(groups);
         return groups;
     }
 }
