@@ -34,4 +34,10 @@ public class AppTest {
         InputParser inputParser = new InputParser();
         inputParser.formatAnswers("src/resources/testInput");
     }
+
+    @Test
+    public void test5() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.removeDoubles("src/resources/testInput");
+    }
 }

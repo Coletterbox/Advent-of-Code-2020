@@ -82,4 +82,23 @@ public class InputParser {
         System.out.println("groups: " + sortedGroups);
         return sortedGroups;
     }
+
+    ArrayList<String> removeDoubles(String filename) throws IOException {
+        ArrayList<String> sortedGroups = formatAnswers(filename);
+        ArrayList<String> sortedGroupsWithoutDoubles = new ArrayList<>();
+        for (String group : sortedGroups) {
+            if (group.length() > 0) {
+                StringBuilder groupWithoutDoubles = new StringBuilder();
+                groupWithoutDoubles.append(group.charAt(0));
+                for (int i = 1; i < group.length(); i++) {
+                    if (group.charAt(i) != group.charAt(i-1)) {
+                        groupWithoutDoubles = new StringBuilder(groupWithoutDoubles.toString() + group.charAt(i));
+                    }
+                }
+                sortedGroupsWithoutDoubles.add(groupWithoutDoubles.toString());
+            }
+        }
+        System.out.println("groups without doubles: " + sortedGroupsWithoutDoubles);
+        return sortedGroupsWithoutDoubles;
+    }
 }
