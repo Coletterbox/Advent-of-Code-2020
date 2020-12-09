@@ -28,4 +28,10 @@ public class AppTest {
         InputParser inputParser = new InputParser();
         inputParser.splitInputIntoGroups("src/resources/testInput");
     }
+
+    @Test
+    public void test4() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.formatAnswers("src/resources/testInput");
+    }
 }

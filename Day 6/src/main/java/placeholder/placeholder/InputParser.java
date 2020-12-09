@@ -70,4 +70,16 @@ public class InputParser {
         System.out.println(groups);
         return groups;
     }
+
+    ArrayList<String> formatAnswers(String filename) throws IOException {
+        ArrayList<String> groups = splitInputIntoGroups(filename);
+        ArrayList<String> sortedGroups = new ArrayList<>();
+        for (String group : groups) {
+            char[] charArray = group.replace(" ", "").toCharArray();
+            Arrays.sort(charArray);
+            sortedGroups.add(new String(charArray));
+        }
+        System.out.println("groups: " + sortedGroups);
+        return sortedGroups;
+    }
 }
