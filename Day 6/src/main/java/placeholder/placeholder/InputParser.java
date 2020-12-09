@@ -33,25 +33,6 @@ public class InputParser {
         ArrayList<String> inputAsArrayList = convertInput(filename);
 
 //        ArrayList<String> groups = new ArrayList<>(inputAsArrayList.size());
-        
-//        for (String line : inputAsArrayList) {
-//            if (!line.matches("") && ) {
-//
-//            }
-//        }
-
-//        int groupsIndex = 0;
-//        for (int i = 1; i < inputAsArrayList.size(); i++) {
-//            String previousLine = inputAsArrayList.get(i-1);
-//            String currentLine = inputAsArrayList.get(i);
-//            if (!currentLine.matches("") && !previousLine.matches("")) {
-//                String newLine = groups.get(groupsIndex) + currentLine;
-//                groups.add(groupsIndex, newLine);
-//                System.out.println(newLine);
-//            } else if (currentLine.matches("")) {
-//                groupsIndex++;
-//            }
-//        }
 
 //        groups.add(inputAsArrayList.get(0));
 //        int groupsIndex = 0;
@@ -79,7 +60,6 @@ public class InputParser {
                     groups.add("");
                     groups.set(groupsIndex, groups.get(groupsIndex) + " " + inputAsArrayList.get(i));
                 } else if (inputAsArrayList.get(i).length() > 0 && inputAsArrayList.get(i-1).length() == 0) {
-//                    groupsIndex++;
                     groups.add("");
                     groups.set(groupsIndex, inputAsArrayList.get(i));
                 } else if (inputAsArrayList.get(i).length() == 0) {
