@@ -4,17 +4,28 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import java.io.IOException;
+
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class AppTest {
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void test() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.convertInput("src/resources/exampleInput");
+    }
+
+    @Test
+    public void test2() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.splitInputIntoGroups("src/resources/exampleInput");
+    }
+
+    @Test
+    public void test3() throws IOException {
+        InputParser inputParser = new InputParser();
+        inputParser.splitInputIntoGroups("src/resources/testInput");
     }
 }
