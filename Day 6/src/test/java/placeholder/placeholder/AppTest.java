@@ -79,4 +79,12 @@ public class AppTest {
         System.out.println("Test: " + sumCounts);
 //        assertEquals(947, sumCounts);
     }
+
+    @Test
+    public void test11() throws IOException {
+        InputParser inputParser = new InputParser();
+        ArrayList<String> sumCounts = inputParser.makeReadableAnswersInCommon("src/resources/testInput2");
+//        System.out.println("Test: " + sumCounts);
+//        assertEquals(947, sumCounts);
+    }
 }

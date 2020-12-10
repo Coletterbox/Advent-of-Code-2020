@@ -173,7 +173,25 @@ public class InputParser {
 //            }
 
         }
-        System.out.println("answersInCommon: " + answersInCommon);
+//        ArrayList<String> readableAnswersInCommon = new ArrayList<>();
+//        for (String group : answersInCommon) {
+////            System.out.println(group.replace(", ", ""));
+//            readableAnswersInCommon.add(group.replace(", ", ""));
+//        }
+//        System.out.println("readableAnswersInCommon: " + readableAnswersInCommon);
+//        return readableAnswersInCommon;
         return answersInCommon;
+    }
+
+    ArrayList<String> makeReadableAnswersInCommon(String filename) throws IOException {
+        ArrayList<String> answersInCommon = findAnswersInCommonPerGroup(filename);
+        System.out.println("Unreadable crap: " + answersInCommon);
+        for (String group : answersInCommon) {
+            System.out.println(group);
+            System.out.println("\n");
+        }
+        ArrayList<String> readableAnswersInCommon = new ArrayList<>();
+
+        return readableAnswersInCommon;
     }
 }
