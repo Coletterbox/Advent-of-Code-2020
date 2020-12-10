@@ -147,7 +147,7 @@ public class InputParser {
 //                answersInCommon.add(groupAnswersInCommonString.toString());
 //            }
 
-            for (int i = 1; i < sortedGroupAsArray.size(); i++) {
+//            for (int i = 1; i < sortedGroupAsArray.size(); i++) {
                 String lettersToCheckFor = sortedGroupAsArray.get(0);
                 char[] lettersToCheckForArray = lettersToCheckFor.toCharArray();
 //                for (int j = 0; j < sortedGroupAsArray.get(i).length(); j++) {
@@ -170,7 +170,7 @@ public class InputParser {
                         answersInCommon.add(String.valueOf(letter));
                     }
                 }
-            }
+//            }
 
         }
         System.out.println("answersInCommon: " + answersInCommon);
