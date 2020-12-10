@@ -110,4 +110,41 @@ public class InputParser {
         }
         return sumOfCounts;
     }
+
+    ArrayList <String> findAnswersInCommonPerGroup(String filename) throws IOException {
+        ArrayList<String> groups = splitInputIntoGroups(filename);
+        System.out.println(groups);
+        ArrayList<String> answersInCommon = new ArrayList<>();
+        for (String group : groups) {
+            String[] groupAsArray = group.split(" ");
+            ArrayList<String> sortedGroupAsArray = new ArrayList<>();
+            for (String person : groupAsArray) {
+                char[] personCharArray = person.toCharArray();
+                Arrays.sort(personCharArray);
+                String sortedPerson = Arrays.toString(personCharArray);
+//                person = sortedPerson;
+                sortedGroupAsArray.add(sortedPerson);
+            }
+            System.out.println("Test 10: " + sortedGroupAsArray);
+            for (int i = 0; i < sortedGroupAsArray.size(); i++) {
+                ArrayList<Character> groupAnswersInCommon = new ArrayList<>();
+                for (int j = 0; j < sortedGroupAsArray.get(i).length(); j++) {
+                    // sortedGroupAsArray.get(i).charAt(j) (current character) is in every array in the list,
+                    // push it to groupAnswersInCommon
+                    for (int k = 0; k < sortedGroupAsArray.size(); k++) {
+                        String currentCharAsString = Character.toString(sortedGroupAsArray.get(i).charAt(j));
+                        if (sortedGroupAsArray.get(k).contains(currentCharAsString)) {
+                            groupAnswersInCommon.add(sortedGroupAsArray.get(i).charAt(j));
+                        }
+                    }
+                }
+                StringBuilder groupAnswersInCommonString = new StringBuilder();
+                for (Character c : groupAnswersInCommon) {
+                    groupAnswersInCommonString.append(c);
+                }
+                answersInCommon.add(groupAnswersInCommonString.toString());
+            }
+        }
+        return answersInCommon;
+    }
 }

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Unit test for simple App.
@@ -69,5 +70,13 @@ public class AppTest {
         InputParser inputParser = new InputParser();
         long sumCounts = inputParser.sumCounts("src/resources/testInput2");
         assertEquals(947, sumCounts);
+    }
+
+    @Test
+    public void test10() throws IOException {
+        InputParser inputParser = new InputParser();
+        ArrayList<String> sumCounts = inputParser.findAnswersInCommonPerGroup("src/resources/testInput2");
+        System.out.println("Test: " + sumCounts);
+//        assertEquals(947, sumCounts);
     }
 }
