@@ -16,6 +16,8 @@
 **Day 4, Puzzle 2:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%204/src)\
 **Day 5, Puzzle 1:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%205/src)\
 **Day 5, Puzzle 2:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%205/src)\
+**Day 6, Puzzle 1:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%206/src/main/java/placeholder/placeholder)\
+**Day 6, Puzzle 2:** [Java*](https://github.com/Coletterbox/Advent-of-Code-2020/tree/main/Day%206/src/main/java/placeholder/placeholder)\
 \* = includes tests
 
 ## To Do:
