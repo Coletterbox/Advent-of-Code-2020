@@ -58,7 +58,7 @@ public class AppTest {
     }
 
     @Test
-    // for puzzle answer
+    // for puzzle 1 answer
     public void test8() throws IOException {
         InputParser inputParser = new InputParser();
         long sumCounts = inputParser.sumCounts("src/resources/input");
@@ -93,5 +93,20 @@ public class AppTest {
         AnswerFinder answerFinder = new AnswerFinder();
         ArrayList<String> sumCounts = answerFinder.findAnswersInCommonPerGroup("src/resources/testInput2");
 //        assertEquals(947, sumCounts);
+    }
+
+    @Test
+    public void testSumCounts() throws IOException {
+        AnswerFinder answerFinder = new AnswerFinder();
+        int sum = answerFinder.sumCounts("src/resources/exampleInput");
+        assertEquals(6, sum);
+    }
+
+    @Test
+    // for puzzle 2 answer
+    public void testSumCounts2() throws IOException {
+        AnswerFinder answerFinder = new AnswerFinder();
+        int sum = answerFinder.sumCounts("src/resources/input");
+        assertEquals(3050, sum);
     }
 }

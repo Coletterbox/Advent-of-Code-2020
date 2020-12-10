@@ -40,4 +40,13 @@ public class AnswerFinder {
         System.out.println("answersInCommon: " + answersInCommon);
         return answersInCommon;
     }
+
+    int sumCounts(String filename) throws IOException {
+        ArrayList<String> answersInCommon = findAnswersInCommonPerGroup(filename);
+        int sum = 0;
+        for (String answers : answersInCommon) {
+            sum+=answers.length();
+        }
+        return sum;
+    }
 }
