@@ -604,4 +604,15 @@ public class AppTest {
         int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
         assertEquals(137, validPassportCount);
     }
+
+    @Test
+    public void testingVincentsOutput() throws IOException {
+        InputConverter inputConverter = new InputConverter();
+        ArrayList<String> inputAsArrayList = inputConverter.convertInput("src/resources/Day4_Input1");
+        ArrayList<String> passportArrayList = inputConverter.splitBetweenPassports(inputAsArrayList);
+        PassportChecker passportChecker = new PassportChecker();
+        int validPassportCount = passportChecker.countPassportsWithValidData(passportArrayList);
+//        System.out.println(passportArrayList);
+        assertEquals(127, validPassportCount);
+    }
 }

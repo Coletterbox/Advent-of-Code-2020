@@ -78,10 +78,17 @@ public class PassportChecker {
                 }
             }
         }
-//        System.out.println("Valid passports:");
-//        System.out.println(validPassports);
+        // next two comments are half written
+//        public ArrayList<String> validPassportArray = validPassports;
+        System.out.println("Valid passports:");
+        System.out.println(validPassports);
         return validPassportCount;
     }
+
+//    String[][] validPassportCountSplit(ArrayList<String> passportArrayList) {
+//        ArrayList<String> validPassportCount = countPassportsWithValidData(passportArrayList).validPassportArray;
+//
+//    }
 
     public boolean checkBirthYear(String[] fieldArray) {
         if (fieldArray[1].length() != 4 || Integer.parseInt(fieldArray[1]) < 1920 || Integer.parseInt(fieldArray[1]) > 2002) {
