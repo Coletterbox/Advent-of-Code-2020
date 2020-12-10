@@ -121,30 +121,59 @@ public class InputParser {
             for (String person : groupAsArray) {
                 char[] personCharArray = person.toCharArray();
                 Arrays.sort(personCharArray);
-                String sortedPerson = Arrays.toString(personCharArray);
+                String sortedPerson = Arrays.toString(personCharArray).replace(", ", "");
+                System.out.println("sortedPerson: " + sortedPerson);
 //                person = sortedPerson;
                 sortedGroupAsArray.add(sortedPerson);
             }
             System.out.println("Test 10: " + sortedGroupAsArray);
-            for (int i = 0; i < sortedGroupAsArray.size(); i++) {
-                ArrayList<Character> groupAnswersInCommon = new ArrayList<>();
-                for (int j = 0; j < sortedGroupAsArray.get(i).length(); j++) {
-                    // sortedGroupAsArray.get(i).charAt(j) (current character) is in every array in the list,
-                    // push it to groupAnswersInCommon
-                    for (int k = 0; k < sortedGroupAsArray.size(); k++) {
-                        String currentCharAsString = Character.toString(sortedGroupAsArray.get(i).charAt(j));
-                        if (sortedGroupAsArray.get(k).contains(currentCharAsString)) {
-                            groupAnswersInCommon.add(sortedGroupAsArray.get(i).charAt(j));
+
+//            for (int i = 0; i < sortedGroupAsArray.size(); i++) {
+//                ArrayList<Character> groupAnswersInCommon = new ArrayList<>();
+//                for (int j = 0; j < sortedGroupAsArray.get(i).length(); j++) {
+//                    // sortedGroupAsArray.get(i).charAt(j) (current character) is in every array in the list,
+//                    // push it to groupAnswersInCommon
+//                    for (int k = 0; k < sortedGroupAsArray.size(); k++) {
+//                        String currentCharAsString = Character.toString(sortedGroupAsArray.get(i).charAt(j));
+//                        if (sortedGroupAsArray.get(k).contains(currentCharAsString)) {
+//                            groupAnswersInCommon.add(sortedGroupAsArray.get(i).charAt(j));
+//                        }
+//                    }
+//                }
+//                StringBuilder groupAnswersInCommonString = new StringBuilder();
+//                for (Character c : groupAnswersInCommon) {
+//                    groupAnswersInCommonString.append(c);
+//                }
+//                answersInCommon.add(groupAnswersInCommonString.toString());
+//            }
+
+            for (int i = 1; i < sortedGroupAsArray.size(); i++) {
+                String lettersToCheckFor = sortedGroupAsArray.get(0);
+                char[] lettersToCheckForArray = lettersToCheckFor.toCharArray();
+//                for (int j = 0; j < sortedGroupAsArray.get(i).length(); j++) {
+//                    if (sortedGroupAsArray.get(i).charAt(j))
+//                }
+                for (char letter : lettersToCheckForArray) {
+                    // why do I keep nesting a billion loops... I have no idea what's happening, do I?
+//                    for (int j = 0; j < sortedGroupAsArray.size(); j++) {
+//
+//                    }
+                // check for each letter in each array (sortedGroupAsArray.get(i))
+                    boolean isLetterInEveryArray = true;
+                    // I'm already iterating through this...
+                    for (int j = 1; j < sortedGroupAsArray.size(); j++) {
+                        if (!sortedGroupAsArray.get(j).contains(String.valueOf(letter))) {
+                            isLetterInEveryArray = false;
                         }
                     }
+                    if (isLetterInEveryArray) {
+                        answersInCommon.add(String.valueOf(letter));
+                    }
                 }
-                StringBuilder groupAnswersInCommonString = new StringBuilder();
-                for (Character c : groupAnswersInCommon) {
-                    groupAnswersInCommonString.append(c);
-                }
-                answersInCommon.add(groupAnswersInCommonString.toString());
             }
+
         }
+        System.out.println("answersInCommon: " + answersInCommon);
         return answersInCommon;
     }
 }
