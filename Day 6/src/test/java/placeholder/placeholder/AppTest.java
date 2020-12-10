@@ -87,4 +87,11 @@ public class AppTest {
 //        System.out.println("Test: " + sumCounts);
 //        assertEquals(947, sumCounts);
     }
+
+    @Test
+    public void test12() throws IOException {
+        AnswerFinder answerFinder = new AnswerFinder();
+        ArrayList<String> sumCounts = answerFinder.findAnswersInCommonPerGroup("src/resources/testInput2");
+//        assertEquals(947, sumCounts);
+    }
 }
